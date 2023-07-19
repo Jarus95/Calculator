@@ -9,4 +9,4 @@ Have a look at `Program.cs` file and you can see how I have used:
 * Arithmetic operations
 
 ## Demo
-![demo](../MyCalculator/Assets/demo-live.gif)
+![demo](./Assets/demo-live.gif)
