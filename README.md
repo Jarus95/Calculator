@@ -12,12 +12,12 @@ Have a look at `Program.cs` file and you can see how I have used:
 ![demo](./Assets/demo-live.gif)
 
 ## How to run locally
-1. Press the green clone button and copy the git **[link](https://github.com/Jarus95/MyCalculator.git)**
+1. Press the green clone button and copy the git **[link](https://github.com/Jarus95/Averagely.git)**
 
 ![demo](./Assets/instruction-1-live.gif)
 
 
-2. Open your local folder and run terminal then enter the command *git clone **[link](https://github.com/Jarus95/MyCalculator.git)***
+2. Open your local folder and run terminal then enter the command *git clone **[link](https://github.com/Jarus95/Averagely.git)***
 
 ![demo](./Assets/insturction-2-live.gif)
 
