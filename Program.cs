@@ -23,6 +23,18 @@ namespace  Calculator
            Console.WriteLine($"{firsNumber} * {secondNumber} = {firsNumber * secondNumber}");
            Console.WriteLine($"{firsNumber} / {secondNumber} = {firsNumber / secondNumber}");
            Console.WriteLine($"{firsNumber} % {secondNumber} = {firsNumber % secondNumber}");   
+           
+           Console.WriteLine(new string('-', 40));
+           Console.WriteLine("Enter your age: ");
+           string ageString = Console.ReadLine();
+           int age = int.Parse(ageString);
+
+           string message = (age >= 18 && age <=30) 
+                                 ? "You are eligible to military service"
+                                 : "You are not eligible to military service";
+
+           Console.WriteLine(message);                     
+
        }
     }
 }
