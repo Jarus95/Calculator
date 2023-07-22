@@ -33,8 +33,7 @@ namespace  Calculator
                                  ? "You are eligible to military service"
                                  : "You are not eligible to military service";
 
-           Console.WriteLine(message);                     
-
+           Console.WriteLine(message); 
        }
     }
 }
