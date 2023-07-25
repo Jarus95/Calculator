@@ -1,4 +1,7 @@
-# MyCalculator
+# MyCalculator v2.0
+
+This is an improved version **[v1.0](https://github.com/Jarus95/Calculator/tree/releases/v1.0)**
+
 
 This project shows how I can successfully use data types &amp; arithmetic operations
 

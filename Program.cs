@@ -10,7 +10,8 @@ namespace  Calculator
            Console.WriteLine("Enter Values");
            Console.Write("Enter first number: ");
            string firstValue= Console.ReadLine();
-
+           Console.Write("Operations [+ - * /]: ");
+           string operation = Console.ReadLine();
            Console.Write("Enter second number: ");
            string secondValue = Console.ReadLine();
            Console.WriteLine("Converting values...");
@@ -18,12 +19,29 @@ namespace  Calculator
            decimal firsNumber = decimal.Parse(firstValue);
            decimal secondNumber = decimal.Parse(secondValue);
            
-           Console.WriteLine($"{firsNumber} + {secondNumber} = {firsNumber + secondNumber}");
-           Console.WriteLine($"{firsNumber} - {secondNumber} = {firsNumber - secondNumber}");
-           Console.WriteLine($"{firsNumber} * {secondNumber} = {firsNumber * secondNumber}");
-           Console.WriteLine($"{firsNumber} / {secondNumber} = {firsNumber / secondNumber}");
-           Console.WriteLine($"{firsNumber} % {secondNumber} = {firsNumber % secondNumber}");   
-           
+           switch(operation)
+           {
+                case "+" :
+                   Console.WriteLine($"{firsNumber} + {secondNumber} = {firsNumber + secondNumber}");
+                   break;
+                case "-" :
+                   Console.WriteLine($"{firsNumber} - {secondNumber} = {firsNumber - secondNumber}");
+                   break;
+                case "*" :
+                   Console.WriteLine($"{firsNumber} * {secondNumber} = {firsNumber * secondNumber}");
+                   break;
+                case "/" :
+                   Console.WriteLine($"{firsNumber} / {secondNumber} = {firsNumber / secondNumber}");
+                   break;
+                 case "%" :
+                   Console.WriteLine($"{firsNumber} % {secondNumber} = {firsNumber % secondNumber}");
+                   break;
+                 default:
+                   Console.WriteLine("Invalid Input");
+                 break;
+
+           }
+            
            Console.WriteLine(new string('-', 40));
            Console.WriteLine("Enter your age: ");
            string ageString = Console.ReadLine();
