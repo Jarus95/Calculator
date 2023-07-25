@@ -2,6 +2,7 @@
 
 This is an improved version **[v1.0](https://github.com/Jarus95/Calculator/tree/releases/v1.0)**
 
+
 This project shows how I can successfully use data types &amp; arithmetic operations
 
 Have a look at `Program.cs` file and you can see how I have used:
