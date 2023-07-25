@@ -9,21 +9,18 @@ Have a look at `Program.cs` file and you can see how I have used:
 
 * Console input/output
 * Conversion between data types
-* Arithmetic operations
-
+* Arithmetic operations 
+* Logical operation (if else, switch case expression)
 ## Demo
-![demo](./Assets/demo-live.gif)
+![demo](./assets/demo-live-2.gif)
 
 ## How to run locally
 1. Press the green clone button and copy the git **[link](https://github.com/Jarus95/Averagely.git)**
 
-![demo](./Assets/instruction-1-live.gif)
+
 
 
 2. Open your local folder and run terminal then enter the command *git clone **[link](https://github.com/Jarus95/Averagely.git)***
 
-![demo](./Assets/insturction-2-live.gif)
 
 3. Open project and write _dotnet run_ command in terminal
-
-![demo](./Assets/insturction-3-live.gif)

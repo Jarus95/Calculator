@@ -19,29 +19,18 @@ namespace  Calculator
            decimal firsNumber = decimal.Parse(firstValue);
            decimal secondNumber = decimal.Parse(secondValue);
            
-           switch(operation)
+           string template = $"{firsNumber} {operation} {secondNumber} =";
+           decimal result = operation switch
            {
-                case "+" :
-                   Console.WriteLine($"{firsNumber} + {secondNumber} = {firsNumber + secondNumber}");
-                   break;
-                case "-" :
-                   Console.WriteLine($"{firsNumber} - {secondNumber} = {firsNumber - secondNumber}");
-                   break;
-                case "*" :
-                   Console.WriteLine($"{firsNumber} * {secondNumber} = {firsNumber * secondNumber}");
-                   break;
-                case "/" :
-                   Console.WriteLine($"{firsNumber} / {secondNumber} = {firsNumber / secondNumber}");
-                   break;
-                 case "%" :
-                   Console.WriteLine($"{firsNumber} % {secondNumber} = {firsNumber % secondNumber}");
-                   break;
-                 default:
-                   Console.WriteLine("Invalid Input");
-                 break;
-
-           }
-            
+              "+" => firsNumber + secondNumber,
+              "-" => firsNumber - secondNumber,
+              "*" => firsNumber * secondNumber,
+              "/" => firsNumber / secondNumber,
+              "%" => firsNumber % secondNumber,
+               _  => 0              
+           };
+     
+           Console.WriteLine($"{template} {result}"); 
            Console.WriteLine(new string('-', 40));
            Console.WriteLine("Enter your age: ");
            string ageString = Console.ReadLine();
