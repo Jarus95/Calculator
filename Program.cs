@@ -7,40 +7,62 @@ namespace  Calculator
     {
        static void Main()
        {
-           Console.WriteLine("Enter Values");
-           Console.Write("Enter first number: ");
-           string firstValue= Console.ReadLine();
-           Console.Write("Operations [+ - * /]: ");
-           string operation = Console.ReadLine();
-           Console.Write("Enter second number: ");
-           string secondValue = Console.ReadLine();
-           Console.WriteLine("Converting values...");
+           bool isRepeat = false;
 
-           decimal firsNumber = decimal.Parse(firstValue);
-           decimal secondNumber = decimal.Parse(secondValue);
-           
-           string template = $"{firsNumber} {operation} {secondNumber} =";
-           decimal result = operation switch
+           do
            {
-              "+" => firsNumber + secondNumber,
-              "-" => firsNumber - secondNumber,
-              "*" => firsNumber * secondNumber,
-              "/" => firsNumber / secondNumber,
-              "%" => firsNumber % secondNumber,
-               _  => 0              
-           };
-     
-           Console.WriteLine($"{template} {result}"); 
-           Console.WriteLine(new string('-', 40));
-           Console.WriteLine("Enter your age: ");
-           string ageString = Console.ReadLine();
-           int age = int.Parse(ageString);
+             Console.WriteLine("1. Show multiplication table");
+             Console.WriteLine("2. Mathematical operations");
 
-           string message = (age >= 18 && age <=30) 
-                                 ? "You are eligible to military service"
-                                 : "You are not eligible to military service";
+             int userInput = int.Parse(Console.ReadLine());
+             if(userInput == 1)
+             {
+                for(int outerIteration = 2; outerIteration <= 9; outerIteration++)
+                {
+                    Console.WriteLine(new string('-', 50));
+                    for(int iteration = 1; iteration <= 9; iteration++)
+                    {
+                       Console.WriteLine($"{outerIteration} * {iteration} = {outerIteration * iteration}");
+                    }
+                }
+             }
+             if(userInput == 2)
+             {
+                Console.WriteLine("Enter Values");
+                Console.Write("Enter first number: ");
+                string firstValue= Console.ReadLine();
+                Console.Write("Operations [+ - * /]: ");
+                string operation = Console.ReadLine();
+                Console.Write("Enter second number: ");
+                string secondValue = Console.ReadLine();
+                Console.WriteLine("Converting values...");
+       
+                decimal firsNumber = decimal.Parse(firstValue);
+                decimal secondNumber = decimal.Parse(secondValue);
+                
+                string template = $"{firsNumber} {operation} {secondNumber} =";
+                decimal result = operation switch
+                {
+                   "+" => firsNumber + secondNumber,
+                   "-" => firsNumber - secondNumber,
+                   "*" => firsNumber * secondNumber,
+                   "/" => firsNumber / secondNumber,
+                   "%" => firsNumber % secondNumber,
+                    _  => 0              
+                };
+        
+                Console.WriteLine($"{template} {result}"); 
+             }
 
-           Console.WriteLine(message); 
+         
+             Console.WriteLine();
+             Console.Write("Do you want to Repeat? [y/n]: ");
+             string answer = Console.ReadLine();
+
+             isRepeat = answer == "y" ? true : false; 
+         }
+
+         while(isRepeat);
        }
     }
 }
