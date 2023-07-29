@@ -36,9 +36,18 @@ namespace  Calculator
                 Console.Write("Enter second number: ");
                 string secondValue = Console.ReadLine();
                 Console.WriteLine("Converting values...");
-       
-                decimal firsNumber = decimal.Parse(firstValue);
-                decimal secondNumber = decimal.Parse(secondValue);
+                decimal firsNumber = 0;
+                decimal secondNumber = 0;                  
+                try
+                {
+                   firsNumber = decimal.Parse(firstValue);
+                   secondNumber = decimal.Parse(secondValue);                  
+                }
+
+                catch(Exception ex)
+                {
+                  Console.WriteLine(ex.Message);
+                }
                 
                 string template = $"{firsNumber} {operation} {secondNumber} =";
                 decimal result = operation switch
@@ -53,7 +62,10 @@ namespace  Calculator
         
                 Console.WriteLine($"{template} {result}"); 
              }
-
+             else
+             {
+               Console.WriteLine("Invalid Input");
+             }
          
              Console.WriteLine();
              Console.Write("Do you want to Repeat? [y/n]: ");

@@ -12,6 +12,7 @@ Have a look at `Program.cs` file and you can see how I have used:
 * Arithmetic operations 
 * Logical operation (if else, switch case expression)
 * Loop operations
+* The try-catch statement
 ## Demo
 ![demo](./assets/demo-live-2.gif)
 
@@ -22,6 +23,7 @@ Have a look at `Program.cs` file and you can see how I have used:
 #### New Features
 * You can show multiplication table
 * Program to ask you to try again
+* Handle exceptions that might occur during execution
 
 ### **[v1.0](https://github.com/Jarus95/Calculator/tree/releases/v1.0)**
 
