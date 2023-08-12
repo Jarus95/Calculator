@@ -11,8 +11,26 @@ Have a look at `Program.cs` file and you can see how I have used:
 * Conversion between data types
 * Arithmetic operations 
 * Logical operation (if else, switch case expression)
+* Loop operations
+* The try-catch statement
 ## Demo
 ![demo](./assets/demo-live-2.gif)
+
+## Release Notes
+
+### **[v2.0](https://github.com/Jarus95/Calculator/tree/releases/v2.0)**
+
+#### New Features
+* You can show multiplication table
+* Program to ask you to try again
+* Handle exceptions that might occur during execution
+
+### **[v1.0](https://github.com/Jarus95/Calculator/tree/releases/v1.0)**
+
+#### Features
+* You can now add two numbers using the 
+
+  **+ - / * %**  operators
 
 ## How to run locally
 1. Press the green clone button and copy the git **[link](https://github.com/Jarus95/Averagely.git)**

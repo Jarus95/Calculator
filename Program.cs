@@ -29,6 +29,7 @@ namespace  Calculator
              }
 
              ReporteR.ShowGratitude();
+
              Console.WriteLine();
              Console.Write("Do you want to Repeat? [y/n]: ");
              string answer = Console.ReadLine();
