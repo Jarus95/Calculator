@@ -1,43 +1,42 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-using System;
 using MyCalculator.Classes;
 
-namespace  Calculator
+namespace Calculator
 {
     class Calculator
     {
-       static void Main()
-       {
-           var menu = new Menu();
-           var multiplicationTable = new MultiplicationTable();
-           var calculator = new CalculatoR();
-           bool isRepeat = false;
-           do
-           {            
-             menu.ShowMenu();
+        static void Main()
+        {
+            var menu = new Menu();
+            var multiplicationTable = new MultiplicationTable();
+            var calculator = new AdvancedCalculatoR();
+            bool isRepeat = false;
+            do
+            {
+                menu.ShowMenu();
 
-             int userInput = int.Parse(Console.ReadLine());
-             if(userInput == 1)
-             {
-                 multiplicationTable.ShowMultiplicationTable();
-             }
+                int userInput = int.Parse(Console.ReadLine());
+                if (userInput == 1)
+                {
+                    multiplicationTable.ShowMultiplicationTable();
+                }
 
-             if(userInput == 2)
-             {
-                calculator.Calculate();
-             }
+                if (userInput == 2)
+                {
+                    calculator.Calculate();
+                }
 
-             ReporteR.ShowGratitude();
+                ReporteR.ShowGratitude();
 
-             Console.WriteLine();
-             Console.Write("Do you want to Repeat? [y/n]: ");
-             string answer = Console.ReadLine();
+                Console.WriteLine();
+                Console.Write("Do you want to Repeat? [y/n]: ");
+                string answer = Console.ReadLine();
 
-             isRepeat = answer == "y" ? true : false; 
-         }
+                isRepeat = answer == "y" ? true : false;
+            }
 
-         while(isRepeat);
-       }
+            while (isRepeat);
+        }
     }
 }

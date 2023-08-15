@@ -1,34 +1,34 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace MyCalculator.Classes
 {
     public class CalculatoR
     {
-        public void Calculate()
+        protected string FirstValue { get; set; }
+        protected string Operation { get; set; }
+        protected string SecondValue { get; set; }
+        protected decimal FirsNumber { get; set; }
+        protected decimal SecondNumber { get; set; }
+        public virtual void Calculate()
         {
-             string firstValue = ValueManipulator.GetUserValueFromMessage("Enter Values\nEnter first number: ");
-             string operation = ValueManipulator.GetUserValueFromMessage("Operations [+ - * /]: ");
-             string secondValue = ValueManipulator.GetUserValueFromMessage("Enter second number: ");
-             ReporteR.RepotProgress("Converting values...");
+            FirstValue = ValueManipulator.GetUserValueFromMessage("Enter Values\nEnter first number: ");
+            Operation = ValueManipulator.GetUserValueFromMessage("Operations [+ - * /]: ");
+            SecondValue = ValueManipulator.GetUserValueFromMessage("Enter second number: ");
+            ReporteR.RepotProgress("Converting values...");
 
-             decimal firsNumber = ValueManipulator.ConvertUserValueToDecimal(firstValue);
-             decimal secondNumber = ValueManipulator.ConvertUserValueToDecimal(secondValue);
+            FirsNumber = ValueManipulator.ConvertUserValueToDecimal(FirstValue);
+            SecondNumber = ValueManipulator.ConvertUserValueToDecimal(SecondValue);
 
-             string template = $"{firsNumber} {operation} {secondNumber} =";
-             decimal result = operation switch
-             {
-                "+" => Sum(firsNumber, secondNumber),
-                "-" => Substract(firsNumber, secondNumber),
-                "*" => Multiply(firsNumber, secondNumber),
-                "/" => Divide(firsNumber, secondNumber),
-                "%" => CalculateRemainder(firsNumber, secondNumber),
-                 _  => 0              
-             };
+            string template = $"{FirsNumber} {Operation} {SecondNumber} =";
+            decimal result = Operation switch
+            {
+                "+" => Sum(FirsNumber, SecondNumber),
+                "-" => Substract(FirsNumber, SecondNumber),
+                "*" => Multiply(FirsNumber, SecondNumber),
+                "/" => Divide(FirsNumber, SecondNumber),
+                "%" => CalculateRemainder(FirsNumber, SecondNumber),
+                _ => 0
+            };
 
-             ReporteR.RepotResult($"{template} {result}"); 
+            ReporteR.RepotResult($"{template} {result}");
         }
 
         public decimal Sum(decimal firstNumber, decimal secondNumber)
