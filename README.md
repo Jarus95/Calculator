@@ -13,10 +13,18 @@ Have a look at `Program.cs` file and you can see how I have used:
 * Logical operation (if else, switch case expression)
 * Loop operations
 * The try-catch statement
+* Classes
+* Inheritence
+* Polymorphism 
 ## Demo
-![demo](./assets/demo-live-2.gif)
+![demo](./assets/demo-live-4.gif)
 
 ## Release Notes
+
+### **[v3.0](https://github.com/Jarus95/Calculator/tree/releases/v3.0)**
+
+#### New Features
+* You can use Advanced Calculator ( √a, a^b )
 
 ### **[v2.0](https://github.com/Jarus95/Calculator/tree/releases/v2.0)**
 

@@ -7,7 +7,7 @@ namespace MyCalculator.Classes
         {
             base.Calculate();
 
-            Console.WriteLine("Do you want to enable advanced calculator? [y/n]: ");
+            Console.WriteLine("Do you want to use advanced calculator? [y/n]: ");
             string answer = Console.ReadLine();
 
             isRepeat = answer == "y" ? true : false;
