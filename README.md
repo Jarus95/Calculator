@@ -17,7 +17,7 @@ Have a look at `Program.cs` file and you can see how I have used:
 * Inheritence
 * Polymorphism 
 ## Demo
-![demo](./assets/demo-live-1.gif)
+![demo](./assets/demo-live-4.gif)
 
 ## Release Notes
 
