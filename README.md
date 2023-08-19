@@ -16,6 +16,7 @@ Have a look at `Program.cs` file and you can see how I have used:
 * Classes
 * Inheritence
 * Polymorphism 
+* Interfaces
 ## Demo
 ![demo](./assets/demoLast.gif)
 
