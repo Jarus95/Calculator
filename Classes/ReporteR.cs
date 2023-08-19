@@ -1,20 +1,28 @@
+using Calculator.Interfaces;
+
 namespace MyCalculator.Classes
 {
-    public static class ReporteR
+    public class ReporteR : IReporter
     {
-        public static void ShowGratitude()
+        public void ShowGratitude()
         {
             Console.WriteLine("Thank you for using our Calculator");
         }
 
-        public static void RepotProgress(string message)
+        public void RepotProgress(string message)
         {
             Console.WriteLine(message);
         }
 
-        public static void RepotResult(string result)
+        public void RepotResult(string result)
         {
             Console.WriteLine(result);
+        }
+
+        public int ReportError(string errorMessage)
+        {
+            Console.WriteLine(errorMessage);
+            return -1;
         }
     }
 }
