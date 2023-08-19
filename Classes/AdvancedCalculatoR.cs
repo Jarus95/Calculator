@@ -1,68 +1,49 @@
+using Calculator.Interfaces;
+
 namespace MyCalculator.Classes
 {
-    public class AdvancedCalculatoR : CalculatoR
+    public class AdvancedCalculatoR : CalculatoR, ICalculate
     {
-        bool isRepeat = false;
+        public AdvancedCalculatoR() =>
+            color = ConsoleColor.Yellow;
+        
         public override void Calculate()
         {
-            base.Calculate();
+            string firstValue = ValueManipulator.GetUserValueFromMessage("Enter Values\nEnter first number: ", color);
+            string operation = ValueManipulator.GetUserValueFromMessage("Operations\n 1) +\n 2) -\n 3) *\n 4) /\n 5) %\n 6) √a\n 7) a^b\n ", color);
+            string secondValue = "0";
 
-            Console.WriteLine("Do you want to use advanced calculator? [y/n]: ");
-            string answer = Console.ReadLine();
+            if (!operation.Equals("6"))
+                secondValue = ValueManipulator.GetUserValueFromMessage("Enter second number: ", color);
 
-            isRepeat = answer == "y" ? true : false;
-            if(answer == "y")
+            reporter.RepotProgress("Converting values...");
+
+            ConvertValues(firstValue, secondValue, operation); ;
+
+            double result = Operation switch
             {
-                Operation = ValueManipulator.GetUserValueFromMessage("Operations\n1) √a  \n2) a^b ");
-                if(Operation == "1") 
-                {
-                   FirstValue = ValueManipulator.GetUserValueFromMessage("Enter Values\nEnter number a: ");
-                    
-                }
-                else if(Operation == "2")
-                {
-                  FirstValue = ValueManipulator.GetUserValueFromMessage("Enter Values\nEnter number a: ");
-                  SecondValue = ValueManipulator.GetUserValueFromMessage("Enter power number a: ");
+                1 => Sum(FirsNumber, SecondNumber),
+                2 => Substract(FirsNumber, SecondNumber),
+                3 => Multiply(FirsNumber, SecondNumber),
+                4 => Divide(FirsNumber, SecondNumber),
+                5 => CalculateRemainder(FirsNumber, SecondNumber),
+                6 => SqeareRoot(FirsNumber),
+                7 => Caret(FirsNumber, SecondNumber),
+                _ => reporter.ReportError("Invalid Input")
+            };
 
-                }
-                ReporteR.RepotProgress("Converting values...");
-
-                FirsNumber = ValueManipulator.ConvertUserValueToDecimal(FirstValue);
-                SecondNumber = ValueManipulator.ConvertUserValueToDecimal(SecondValue);
-
-                //string template = $"{FirsNumber} {Operation} {SecondNumber} =";
-                double result = decimal.Parse(Operation) switch
-                {
-                    1 => SqeareRoot(FirsNumber),
-                    2 => Caret(FirsNumber, SecondNumber),
-                    _ => 0
-                };
-
-                if (Operation == "1")
-                {
-                    ReporteR.RepotResult($"√{FirsNumber} = {result}");
-
-                }
-                else if (Operation == "2")
-                {
-                    ReporteR.RepotResult($"{FirsNumber}^{SecondNumber}  = {result}");
-
-                }
-                
-            }
-
-
+            reporter.RepotResult($"{Template} {result}");
         }
 
-
-        public double SqeareRoot(decimal number)
+        public double SqeareRoot(double number)
         {
-            return Math.Sqrt((double)number);
-        } 
-        public double Caret(decimal number,  decimal power)
-        {
-            return Math.Pow((double)number, (int)power);
+            Template = $"√{number} = ";
+            return Math.Sqrt(number);
         }
-
+        public double Caret(double number, double power)
+        {
+            Template = $"{number}^{power} = ";
+            return Math.Pow(number, (int)power);
+        }
     }
 }

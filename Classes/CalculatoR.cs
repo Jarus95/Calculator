@@ -1,58 +1,84 @@
+﻿using System.Drawing;
+using Calculator.Interfaces;
+
 namespace MyCalculator.Classes
 {
     public class CalculatoR
     {
-        protected string FirstValue { get; set; }
-        protected string Operation { get; set; }
-        protected string SecondValue { get; set; }
-        protected decimal FirsNumber { get; set; }
-        protected decimal SecondNumber { get; set; }
-        public virtual void Calculate()
+
+        protected double FirsNumber { get; set; }
+        protected double SecondNumber { get; set; }
+        protected decimal Operation { get; set; }
+        public string Template { get; set; }
+
+        protected ConsoleColor color;
+
+        protected IReporter reporter;
+
+        public CalculatoR()
         {
-            FirstValue = ValueManipulator.GetUserValueFromMessage("Enter Values\nEnter first number: ");
-            Operation = ValueManipulator.GetUserValueFromMessage("Operations [+ - * /]: ");
-            SecondValue = ValueManipulator.GetUserValueFromMessage("Enter second number: ");
-            ReporteR.RepotProgress("Converting values...");
-
-            FirsNumber = ValueManipulator.ConvertUserValueToDecimal(FirstValue);
-            SecondNumber = ValueManipulator.ConvertUserValueToDecimal(SecondValue);
-
-            string template = $"{FirsNumber} {Operation} {SecondNumber} =";
-            decimal result = Operation switch
-            {
-                "+" => Sum(FirsNumber, SecondNumber),
-                "-" => Substract(FirsNumber, SecondNumber),
-                "*" => Multiply(FirsNumber, SecondNumber),
-                "/" => Divide(FirsNumber, SecondNumber),
-                "%" => CalculateRemainder(FirsNumber, SecondNumber),
-                _ => 0
-            };
-
-            ReporteR.RepotResult($"{template} {result}");
+            color = ConsoleColor.Green;
+            reporter = new ReporteR();
         }
 
-        public decimal Sum(decimal firstNumber, decimal secondNumber)
+        public virtual void Calculate()
         {
+            string firstValue = ValueManipulator.GetUserValueFromMessage("Enter Values\nEnter first number: ", color);
+            string operation = ValueManipulator.GetUserValueFromMessage("Operations\n 1) +\n 2) -\n 3) *\n 4) /\n ", color);
+            string secondValue = ValueManipulator.GetUserValueFromMessage("Enter second number: ", color);
+            reporter.RepotProgress("Converting values...");
+
+            ConvertValues(firstValue, secondValue, operation);
+
+            double result = Operation switch
+            {
+                1 => Sum(FirsNumber, SecondNumber),
+                2 => Substract(FirsNumber, SecondNumber),
+                3 => Multiply(FirsNumber, SecondNumber),
+                4 => Divide(FirsNumber, SecondNumber),
+                5 => CalculateRemainder(FirsNumber, SecondNumber),
+                _ => reporter.ReportError("Invalid Input")
+            };
+
+            reporter.RepotResult($"{Template} {result}");
+        }
+
+        public void ConvertValues(string firstValue, string secondValue, string operation)
+        {
+            FirsNumber = ValueManipulator.ConvertUserValueToDouble(firstValue);
+            SecondNumber = ValueManipulator.ConvertUserValueToDouble(secondValue);
+            Operation = ValueManipulator.ConvertUserValueToInt(operation);
+        }
+
+        public double Sum(double firstNumber, double secondNumber)
+        {
+            Template = $"{FirsNumber} + {SecondNumber} =";
             return firstNumber + secondNumber;
         }
 
-        public decimal Multiply(decimal firstNumber, decimal secondNumber)
+        public double Multiply(double firstNumber, double secondNumber)
         {
+            Template = $"{FirsNumber} * {SecondNumber} =";
             return firstNumber * secondNumber;
         }
 
-        public decimal Substract(decimal firstNumber, decimal secondNumber)
+        public double Substract(double firstNumber, double secondNumber)
         {
+            Template = $"{FirsNumber} - {SecondNumber} =";
+
             return firstNumber - secondNumber;
         }
 
-        public decimal Divide(decimal firstNumber, decimal secondNumber)
+        public double Divide(double firstNumber, double secondNumber)
         {
+            Template = $"{FirsNumber} / {SecondNumber} =";
             return firstNumber / secondNumber;
         }
 
-        public decimal CalculateRemainder(decimal firstNumber, decimal secondNumber)
+        public double CalculateRemainder(double firstNumber, double secondNumber)
         {
+            Template = $"{FirsNumber} % {SecondNumber} =";
+
             return firstNumber % secondNumber;
         }
     }
