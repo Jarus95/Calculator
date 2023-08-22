@@ -2,7 +2,7 @@ using Calculator.Interfaces;
 
 namespace MyCalculator.Classes
 {
-    public class AdvancedCalculatoR : CalculatoR, ICalculate
+    public class AdvancedCalculatoR : CalculatoR, ICalculator
     {
         public AdvancedCalculatoR() =>
             color = ConsoleColor.Yellow;

@@ -1,6 +1,6 @@
 ﻿namespace Calculator.Interfaces
 {
-    public interface ICalculate
+    public interface ICalculator
     {
         double Sum(double firstNumber, double secondNumber);
         double Multiply(double firstNumber, double secondNumber);

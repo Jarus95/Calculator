@@ -17,6 +17,9 @@ Have a look at `Program.cs` file and you can see how I have used:
 * Inheritence
 * Polymorphism 
 * Interfaces
+## Diagram
+![demo](./assets/dio.png)
+
 ## Demo
 ![demo](./assets/demoLast.gif)
 
